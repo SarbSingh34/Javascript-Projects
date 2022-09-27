@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"name": "Myimages",
+			"path": "C:/Users/DollarBoy/Desktop/Myimages"
+		},
+		{
+			"name": "CarouselJS",
+			"path": "."
+		},
+		{
+			"name": "images",
+			"path": "../../Carousel/images"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "CarouselJS"
+	}
+}

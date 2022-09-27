@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Document </title>
+</head>
+        <style>
+             .error { color:red;font-size: 22px;}
+             #submiterror  { color:red;font-size: 22px;}  
+        </style>   
+<body>
+
+        <!-- valid Registration Form  -->
+
+      <main style = "background-color:rgb(211, 204, 203);width: 100%;height: 50vh;">
+        <div style = "display: flex;width: 100%;justify-content: center;">
+        
+            <form id = "registrationForm">
+                <div style = "padding:1%">
+                    <label for = "firstname" > First Name : </label>
+                    <input type = "text" placeholder = "Enter your name" id = "firstname"  onkeyup="validateName()" />
+                    <p id = "firstnameError" class = "error">  </p>
+                </div>
+
+                <div style = "padding:1%">
+                    <label for = "email" > Email :  </label>
+                    <input type = "email" placeholder = "Enter your Email" id = "email"    onkeyup="validateEmail()" />
+                    <p id = "emailError" class = "error"> </p>
+                </div>
+
+                <div style = "padding:1%">
+                    <label for = "tel" > Phone No. : </label>
+                    <input type = "tel" placeholder = "123 456 789" id = "tel"   onkeyup="validatetell()" />
+                    <p id = "telError" class = "error"> </p>
+                </div>
+
+                <button onclick = "return validateform()"> Register  </button>
+                <p id = "submiterror">  </p>
+
+            </form>
+            </div>
+        </main>
+
+      <script src = "index.js"> </script>
+
+</body>
+</html>

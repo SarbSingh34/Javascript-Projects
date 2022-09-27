@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Document </title>
+</head>
+<body>
+    <div>
+        <h2> Counter : <span id = "count"> 0 </span> </h2>
+        <button id = "increment" >  Increase  </button>
+        <button id = "decrement" >  Decrement </button>
+        <button id = "reset" >  Reset  </button>
+    </div>
+
+    <script>
+        var count = document.getElementById('count');
+        var increment = document.getElementById('increment');
+        var decrement = document.getElementById('decrement');
+        var reset = document.getElementById('reset');
+        let counter = 0;
+
+        increment.addEventListener('click',() =>
+        {
+            count.innerHTML = counter++;
+        })
+
+        decrement.addEventListener('click',() =>
+        {
+            count.innerHTML = counter--;
+        })
+        reset.addEventListener('click',() =>
+        {
+            counter = 0;
+            count.innerHTML = 0;
+        })
+
+
+        // can try withClasses as Well from Youtube 
+    </script>
+</body>
+</html>
