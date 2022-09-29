@@ -7,9 +7,9 @@ function reversestring(str)
 
 console.log(reversestring('vrello'));
 
+
 // js function for Palindrome 
 // By  starting and reversing the character should et same results  
-
 
 function checkpal(str)
 {
@@ -52,8 +52,8 @@ function convertDatetoStr(date)
 }
 
 var date = {
-  day : 5,
-  month : 9,
+  day : 29,
+  month : 2,
   year : 2020
 }
 
@@ -77,3 +77,92 @@ function getallDateFormats()
 }
 
 console.log(getallDateFormats(date));
+
+
+function checkpalindromeforalldateformats()
+{
+     var listofpalindrome = getallDateFormats(date);
+
+    //   loop over the array result of palindrome 
+        var checkispalindrome = false;
+
+     for(var i = 0;i<listofpalindrome.length;i++)
+     {
+        if(checkpal(listofpalindrome[i]))
+        {   
+            checkispalindrome = true;
+            break;
+        }
+     }
+     return checkispalindrome;
+}
+ 
+console.log(checkpalindromeforalldateformats(date))
+
+// get the next date bro
+
+ function getNextdate(date)
+ {
+    var day = date.day + 1 ;
+    var month = date.month;
+    var year  = date.year;
+
+    // Array of months  will go from 0-11 
+    var daysinmonth = [31,28,31,30,31,30,31,31,30,31,30,31]
+
+    //  If Month is feb  
+     if(month === 2)
+     {
+        if(isleapyear(year))
+        {  if(day > 29)            // If day exceeed then day 29 
+             {
+                 day = 1;           // make it to day 1
+                 month++;           // Jump to next Month
+             }
+        }else{
+            if(day > 28)
+            {
+                day = 1;
+                month++;
+            }
+        }
+     }else{
+        if(day > daysinmonth[month-1])
+        {
+            day = 1;
+            month++;
+        }
+     }
+     if(month > 12)
+     {
+        month = 1;
+        year++;
+     }
+     return{
+        day: day,
+        month : month,
+        year : year,
+     }   
+ }
+
+ console.log(getNextdate(date));
+
+
+//  check for leap yeaar 
+ function  isleapyear(year)
+ {
+        if(year % 400 === 0)
+        {
+             return true;
+        }
+        if(year % 100 === 0){
+             return false;
+        }
+        if(year % 4 === 0){
+            return true;
+        }
+        return false;
+ }
+
+console.log(isleapyear(2021))
+
