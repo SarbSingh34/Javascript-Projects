@@ -26,38 +26,39 @@ console.log(checkpal('oppo'))
 // Put the zero if month is less than 9 like 09 
 // same for day also 
 
-function convertDatetoStr(date)
-{
-  var dateStr = {day: '', month : '' , year : ''};
-
-//    if day no. is less  than 10 then append zero before digit 9
-    if(date.day < 10)
+    function convertDatetoStr(date)
     {
-        dateStr.day = '0' + date.day;    // 0 + 9 = 09 
+      var dateStr = {day: '', month : '' , year : ''};
+
+    //    if day no. is less  than 10 then append zero before digit 9
+        if(date.day < 10)
+        {
+            dateStr.day = '0' + date.day;    // 0 + 9 = 09 
+        }
+        else{
+            dateStr.day = date.day.toString(); // rest converted to string  10 ->  '10'
+        }
+
+        //    if month no. is less  than 10 then append zero before digit 9
+        if(date.month < 10)
+        {
+            dateStr.month = '0' + date.month;    // 0 + 9 = 09 
+        }else{
+            dateStr.month = date.month.toString(); // restt converted to string  10 ->  '10'
+        }
+
+        dateStr.year = date.year.toString();
+        return dateStr;
     }
-    else{
-        dateStr.day = date.day.toString(); // rest converted to string  10 ->  '10'
+
+    var date = {
+      day : 29,
+      month : 2,
+      year : 2020
     }
 
-    //    if month no. is less  than 10 then append zero before digit 9
-    if(date.month < 10)
-    {
-        dateStr.month = '0' + date.month;    // 0 + 9 = 09 
-    }else{
-        dateStr.month = date.month.toString(); // restt converted to string  10 ->  '10'
-    }
+    console.log(convertDatetoStr(date))
 
-    dateStr.year = date.year.toString();
-    return dateStr;
-}
-
-var date = {
-  day : 29,
-  month : 2,
-  year : 2020
-}
-
-console.log(convertDatetoStr(date))
 
 // get All date Formats 
 
@@ -96,59 +97,12 @@ function checkpalindromeforalldateformats()
      }
      return checkispalindrome;
 }
- 
+
 console.log(checkpalindromeforalldateformats(date))
-
-// get the next date bro
-
- function getNextdate(date)
- {
-    var day = date.day + 1 ;
-    var month = date.month;
-    var year  = date.year;
-
-    // Array of months  will go from 0-11 
-    var daysinmonth = [31,28,31,30,31,30,31,31,30,31,30,31]
-
-    //  If Month is feb  
-     if(month === 2)
-     {
-        if(isleapyear(year))
-        {  if(day > 29)            // If day exceeed then day 29 
-             {
-                 day = 1;           // make it to day 1
-                 month++;           // Jump to next Month
-             }
-        }else{
-            if(day > 28)
-            {
-                day = 1;
-                month++;
-            }
-        }
-     }else{
-        if(day > daysinmonth[month-1])
-        {
-            day = 1;
-            month++;
-        }
-     }
-     if(month > 12)
-     {
-        month = 1;
-        year++;
-     }
-     return{
-        day: day,
-        month : month,
-        year : year,
-     }   
- }
-
- console.log(getNextdate(date));
 
 
 //  check for leap yeaar 
+
  function  isleapyear(year)
  {
         if(year % 400 === 0)
@@ -163,6 +117,82 @@ console.log(checkpalindromeforalldateformats(date))
         }
         return false;
  }
-
 console.log(isleapyear(2021))
 
+
+
+// get the next date bro
+
+
+// function getNextdate(date)
+// {
+//    var day   = date.day + 1 ;
+//    var month = date.month;
+//    var year  = date.year;
+
+//    // Array of months  will go from 0-11 
+//    var daysinmonth = [31,28,31,30,31,30,31,31,30,31,30,31]
+
+//    //  If Month is feb  
+//     if(month === 2)
+//     {
+//        if(isleapyear(year))
+//        {  if(day > 29)            // If day exceeed then day 29 
+//             {
+//                 day = 1;           // make it to day 1
+//                 month++;           // Jump to next Month
+//             }
+//        }else{
+//            if(day > 28)
+//            {
+//                day = 1;
+//                month++;
+//            }
+//        }
+//     }else{
+//        if(day > daysinmonth[month-1])
+//        {
+//            day = 1;
+//            month++;
+//        }
+//     }
+//     if(month > 12)
+//     {
+//        month = 1;
+//        year++;
+//     }
+//     return{
+//        day: day,
+//        month : month,
+//        year : year,
+//     }   
+// }
+
+// console.log(getNextdate(date));
+
+
+// get next palidomrDATE 
+
+// function getnextpalindromedate(date)
+// {
+//     var ctr = 0;
+//     var nextdate = getNextdate(date);
+
+//     while(1){
+//        ctr++;
+//        var ispalindrome = checkpalindromeforalldateformats(nextdate);
+//          if(ispalindrome){
+//            break;
+//        }
+//        nextdate = getNextdate(nextdate);
+//     }
+//     return [ctr,nextdate];
+// }
+
+// var date = {
+//     day :31,
+//     month : 12,
+//     year :2020
+// }
+
+// console.log(getnextpalindromedate(date));
